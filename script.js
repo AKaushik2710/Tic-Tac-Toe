@@ -9,7 +9,6 @@ for(let box of boxes){
     let tr=1;
     box.addEventListener('click',()=>{
         const box_id = box.getAttribute('id');
-        // console.log(box_id,typeof box_id);
 
         if(box.innerHTML == ""){
         box.innerHTML = marker_update();
@@ -65,10 +64,8 @@ const win_check = (box)=>{
         let condition_count_O = 0;
         for(let win of wins){
             for(let cond of id_Arr_X){
-                // console.log(win,cond);
                 if(win==cond){
                     condition_count_X++;
-                    // console.log(win,cond,condition_count);
                     if(condition_count_X == 3){
                         console.log("X won");
                         condition_count_X = 0;
@@ -80,10 +77,8 @@ const win_check = (box)=>{
                 }
             }
             for(let cond of id_Arr_O){
-                // console.log(win,cond);
                 if(win==cond){
                     condition_count_O++;
-                    // console.log(win,cond,condition_count);
                     if(condition_count_O == 3){
                         console.log("O won");
                         condition_count_O =0;
