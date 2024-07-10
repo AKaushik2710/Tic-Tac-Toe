@@ -48,6 +48,7 @@
     text-align: center;
     padding: 43px;
     font-size: 3rem;
+    cursor: pointer;
 }
 #reset{
     background-color: rgb(170, 255, 189);
@@ -61,6 +62,7 @@
     border-radius: 50px;
     transition: all 0.5s;
     font-family: "Playwrite PE", cursive;
+    cursor: pointer;
 }
 #reset:hover{
     scale: 1.2;
@@ -79,6 +81,7 @@
     animation-iteration-count: infinite;
     background-color: rgb(245, 115, 8);
     border-radius: 10px;
+    cursor: pointer;
 }
 
 @keyframes turn{
