@@ -88,7 +88,9 @@ const win_check = (box)=>{
                         console.log("O won");
                         condition_count_O =0;
                         display.innerHTML = `O Won`;
-                        
+                        for(let box of boxes){
+                            box.innerHTML += `<!-- Filled Up-->`;
+                        }
                     }
                 }
             }
