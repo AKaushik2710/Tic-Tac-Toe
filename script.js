@@ -1,22 +1,29 @@
 let boxes = document.querySelectorAll(".board-boxes");
 let i = 1;
 let last_marker;
+let tr=0;
 const markers = ['X','O'];
 
 document.getElementById("turn").innerHTML = "Turn : " + markers[0];
-                            // APPENDING MARKERS
-for(let box of boxes){
-    let tr=1;
-    box.addEventListener('click',()=>{
-        const box_id = box.getAttribute('id');
+
+function appender(){
+    const box_id = this.getAttribute('id');
         // console.log(box_id,typeof box_id);
 
-        if(box.innerHTML == ""){
-        box.innerHTML = marker_update();
+        if(this.innerHTML == ""){
+        this.innerHTML = marker_update();
         }
-        win_check(box);
+        win_check(this);
         turn_indicator();
-    })
+        this.removeEventListener('click',appender);
+}
+
+                            // APPENDING MARKERS
+for(let box of boxes){
+    box.addEventListener('click',appender)
+    if(box.innerHTML!=""){
+        box.removeEventListener('click',appender);
+    }
 }
 
                             // UPDATING MARKERS
@@ -96,8 +103,8 @@ const win_check = (box)=>{
             }
         }
     }
-
 }
+
                             // TURN INDICATOR
 function turn_indicator(){
     if(last_marker == markers[0] || last_marker == ""){
@@ -127,6 +134,11 @@ document.getElementById('reset').addEventListener('click',()=>{
     last_marker = markers[1];
     i=1;
     document.getElementById("turn").innerHTML = "Turn : " + markers[0];
+    tr=0;
+
+    for(box of boxes){
+        box.addEventListener('click',appender);
+    }
 })
 
                             // COLOR CHANGING FUNCTION
